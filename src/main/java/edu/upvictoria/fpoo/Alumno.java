@@ -1,5 +1,6 @@
 package edu.upvictoria.fpoo;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Alumno {
@@ -23,16 +24,6 @@ public class Alumno {
     public Alumno(String name, String enrollment) {
         this(name);
         this.enrollment = enrollment;
-    }
-
-    public void setGrade(int unitCount, Integer[] grades) {
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < unitCount; i++) {
-            System.out.println("Ingresa la calificación de la unidad " + i);
-            grades[i] = scanner.nextInt();
-        }
-        scanner.close();
-        setGrades(grades);
     }
 
     public Alumno(String name, String enrollment, int unitCount) {
@@ -70,5 +61,26 @@ public class Alumno {
 
     public void setUnitCount(int unitCount) {
         this.unitCount = unitCount;
+    }
+    public float setGPA() {
+        Integer gpa = 0;
+        for (var unit : this.grades) {
+            gpa += unit;
+        }
+        return (float) gpa / this.unitCount;
+    }
+
+    public void setGrade(int unit, Integer grade) {
+        this.grades[unit] = grade;
+    }
+
+    @Override // intelliji
+    public String toString() {
+        return "Alumno{" +
+                "name='" + name + '\'' +
+                ", enrollment='" + enrollment + '\'' +
+                ", grades=" + Arrays.toString(grades) +
+                ", unitCount=" + unitCount +
+                '}';
     }
 }
