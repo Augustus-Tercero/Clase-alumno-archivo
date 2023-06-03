@@ -42,19 +42,19 @@ public class Alumno {
     public void setUnitCount(int unitCount) {
         this.unitCount = unitCount;
     }
-    public float calculateGPA() {
-        Integer gpa = 0;
+    public Float calculateGPA() {
+        Float gpa = 0f;
         for (var unit : this.grades) {
             gpa += unit;
         }
-        return (float) gpa / this.unitCount;
+        return gpa / this.unitCount;
     }
 
     public void setGrade(int unit, Integer grade) {
         this.grades[unit] = grade;
     }
 
-    @Override // intelliji
+    @Override // intellij
     public String toString() {
         return "Alumno{" +
                 "name='" + name + '\'' +
