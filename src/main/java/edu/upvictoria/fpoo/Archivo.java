@@ -14,7 +14,6 @@ public class Archivo {
         this.file = new File(path);
         System.out.println(this.file.exists() ? "Cargando archivo..." : "Archivo no encontrado");
     }
-
     public void showFileContent() {
         var temp = getFileContent();
         System.out.println(temp);
@@ -48,7 +47,6 @@ public class Archivo {
         return fileContent;
     }
 
-    public void setFileContent(ArrayList<String> fileContent) {
-        this.fileContent = fileContent;
+    public void setFileContent() {
     }
 }

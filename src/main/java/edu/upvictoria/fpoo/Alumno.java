@@ -1,34 +1,18 @@
 package edu.upvictoria.fpoo;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Alumno {
     private String name;
-    private String enrollment;
+    private String id;
     private Integer[] grades;
     private int unitCount;
 
-    public Alumno() {
-        this.name = "";
-        this.enrollment = "";
-        this.grades = new Integer[]{};
-        this.unitCount = 0;
-    }
-
-    public Alumno(String name) {
-        this();
-        this.name = name;
-    }
-
-    public Alumno(String name, String enrollment) {
-        this(name);
-        this.enrollment = enrollment;
-    }
-
     public Alumno(String name, String enrollment, int unitCount) {
-        this(name,enrollment);
+        this.name = name;
+        this.id = enrollment;
         this.unitCount = unitCount;
+        this.grades = new Integer[]{};
     }
 
     public String getName() {
@@ -39,12 +23,8 @@ public class Alumno {
         this.name = name;
     }
 
-    public String getEnrollment() {
-        return enrollment;
-    }
-
-    public void setEnrollment(String enrollment) {
-        this.enrollment = enrollment;
+    public String getId() {
+        return id;
     }
 
     public Integer[] getGrades() {
@@ -62,7 +42,7 @@ public class Alumno {
     public void setUnitCount(int unitCount) {
         this.unitCount = unitCount;
     }
-    public float setGPA() {
+    public float calculateGPA() {
         Integer gpa = 0;
         for (var unit : this.grades) {
             gpa += unit;
@@ -78,7 +58,7 @@ public class Alumno {
     public String toString() {
         return "Alumno{" +
                 "name='" + name + '\'' +
-                ", enrollment='" + enrollment + '\'' +
+                ", enrollment='" + id + '\'' +
                 ", grades=" + Arrays.toString(grades) +
                 ", unitCount=" + unitCount +
                 '}';
